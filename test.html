@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Revolution Landing Page Rebuild | @Codegrid</title>
+  <style>
+    /* Paste the CSS code here */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      font-family: "Sharp Grotesk";
+      background: #e7e4e5;
+      overflow: hidden;
+    }
+
+    /* Continue with the rest of your CSS code */
+  </style>
+</head>
+<body>
+  <!-- Paste the HTML code here -->
+  <div class="container">
+    <!-- Your HTML content goes here -->
+  </div>
+  
+  <!-- Paste the JavaScript code here -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Your JavaScript code goes here
+      gsap.set(".img", { y: 500 });
+      gsap.set(".loader-imgs", { x: 500 });
+      gsap.set(".nav-item", { y: 25, opacity: 0 });
+      gsap.set("h1, .item, footer", { y: 200 });
+
+      const tl = gsap.timeline({ delay: 1 });
+
+      tl.to(".img", {
+        y: 0,
+        duration: 1.5,
+        stagger: 0.05,
+        ease: "power3.inOut",
+      })
+        .to(
+          ".loader-imgs",
+          {
+            x: 0,
+            duration: 3,
+            ease: "power3.inOut",
+          },
+          "-=2.5"
+        )
+        .to(
+          ".img:not(#loader-logo)",
+          {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+            duration: 1,
+            stagger: 0.1,
+            ease: "power3.inOut",
+          },
+          "-=1"
+        )
+        .to(
+          ".loader",
+          {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+            duration: 1,
+            ease: "power3.inOut",
+          },
+          "-=0.5"
+        )
+        .to(
+          ".nav-item, h1, footer, .item",
+          {
+            y: 0,
+            opacity: 1,
+            stagger: 0.1,
+            duration: 1,
+            ease: "power3.inOut",
+          },
+          "-=0.5"
+        );
+    });
+  </script>
+</body>
+</html>
